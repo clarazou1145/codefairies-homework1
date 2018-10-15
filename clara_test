@@ -1,0 +1,22 @@
+package selectby
+
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
+
+func TestGroupBy(t *testing.T) {
+	input := []Score{
+		Score{1, "Alexandrina", "Math", 80},
+		Score{1, "Lucy", "English", 58},
+		Score{2, "Lily", "Chinese", 90},
+	}
+
+	seletedScores := GetScore(input)
+	assert.Equal(t, 2, len(seletedScores))
+	seletedClasses := GetClass(input)
+	assert.Equal(t, 2, len(seletedClasses))
+	seletedNames := GetName(input)
+	assert.Equal(t, 1, len(seletedNames))
+}
