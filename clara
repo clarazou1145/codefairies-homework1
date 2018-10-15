@@ -1,0 +1,45 @@
+package selectby
+
+type Score struct {
+	Class  int
+	Name   string
+	Lesson string
+	Score  int
+}
+
+var scores []Score
+
+const (
+	passingLine = 59
+	class       = 1
+	nameLength  = 10
+)
+
+func GetScore(sSlice []Score) []Score {
+	var seletedPerson []Score
+	for _, s := range sSlice {
+		if s.Score > passingLine {
+			seletedPerson = append(seletedPerson, s)
+		}
+	}
+	return seletedPerson
+}
+
+func GetClass(sSlice []Score) []Score {
+	var seletedPerson []Score
+	for _, s := range sSlice {
+		if s.Class == 1 {
+			seletedPerson = append(seletedPerson, s)
+		}
+	}
+	return seletedPerson
+}
+func GetName(sSlice []Score) []Score {
+	var seletedPerson []Score
+	for _, s := range sSlice {
+		if len(s.Name) > nameLength {
+			seletedPerson = append(seletedPerson, s)
+		}
+	}
+	return seletedPerson
+}
